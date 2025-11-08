@@ -21,6 +21,14 @@ def fetch_storage_root(w3: Web3, address: str, block: str) -> Optional[str]:
     except Exception as e:
         print(f"❌ Failed to fetch storage root for {address}: {e}")
         return None
+        
+    storage_root = fetch_storage_root(w3, args.address, args.block)
+    if not storage_root:
+        print("❌ Could not retrieve storage root.")
+        sys.exit(2)
+    
+    if storage_root == "0x" or len(storage_root) < 4:
+        print("⚠️ Warning: Storage root appears empty or invalid. Check RPC or block number.")
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(
