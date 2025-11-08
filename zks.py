@@ -41,6 +41,7 @@ def main() -> None:
     if not w3.is_connected():
         print("❌ RPC connection failed. Check RPC_URL or --rpc.")
         sys.exit(1)
+print("✅ Connected to RPC successfully.")
 
     print("🔧 zk-state-soundness")
     print(f"🔗 RPC: {args.rpc}")
