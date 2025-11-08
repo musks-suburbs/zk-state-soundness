@@ -1,11 +1,11 @@
 # zk-state-soundness
 
-## Overview
+# Overview
 This repository provides a simple Python CLI tool to verify the **state soundness** of smart contracts.  
 It retrieves the **storage root hash** of a contract from the blockchain, which represents the Merkle root of all storage slots.  
 This is useful for verifying that the contract's state has not been tampered with, especially for systems integrating privacy or FHE frameworks like **Aztec** or **Zama**.
 
-## Features
+# Features
 - Retrieve on-chain storage root hash for any address  
 - Compare against an expected hash  
 - Works across Ethereum, L2s, and private devnets  
@@ -13,14 +13,14 @@ This is useful for verifying that the contract's state has not been tampered wit
 - Optional JSON output for CI pipelines  
 - Execution time display for benchmarking  
 
-## Installation
+# Installation
 1. Install Python 3.9+  
 2. Install dependencies:
    pip install web3 eth-utils
 3. Export your RPC endpoint or pass it directly:
    export RPC_URL=https://mainnet.infura.io/v3/YOUR_KEY
 
-## Usage
+# Usage
 Check a contract’s current storage root:
    python app.py --address 0x00000000219ab540356cBB839Cbe05303d7705Fa
 
@@ -33,7 +33,18 @@ Select a specific block:
 Output results in JSON:
    python app.py --address 0x00000000219ab540356cBB839Cbe05303d7705Fa --json
 
-## Expected Output
+# Environment variable usage
+To avoid passing `--rpc` every time, you can set an environment variable once:
+On Linux/macOS:
+   export RPC_URL=https://mainnet.infura.io/v3/YOUR_KEY
+
+On Windows PowerShell:
+   setx RPC_URL "https://mainnet.infura.io/v3/YOUR_KEY"
+
+After that, you can simply run:
+   python app.py --address 0xYourContract
+
+# Expected Output
 Example:
 🔧 zk-state-soundness  
 🔗 RPC: https://mainnet.infura.io/v3/YOUR_KEY  
